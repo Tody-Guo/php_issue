@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <head>
-<title>验证问题解决方案 管理单</title>
+<title>问题汇总方案 管理单</title>
 <?
 	extract($_POST);
 	extract($_GET);
@@ -27,10 +27,10 @@
 	include "top.php";
 ?>
 <div class="container">
-	<div class="page-header alert text-warning"><li><h4>验证问题汇总表 管理</h4></li></div>
+	<div class="page-header alert text-warning"><li><h4>问题点汇总表 管理</h4></li></div>
 	<div>
 		<table border=1 cellpadding=0 class="table table-hover">
-		<tr><th>Item</th><th>客户问题点</th><th>详细状况</th><th>发现时间</th><th>Admin</th></tr>
+		<tr><th>Item</th><th>问题点</th><th>详细状况</th><th>发现时间</th><th>Admin</th></tr>
 <?
 		$db = new mysql();
 		$db->query("select * from validate_issues");

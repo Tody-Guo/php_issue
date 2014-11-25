@@ -65,22 +65,22 @@
 <form action="#", method="post" enctype="application/x-www-form-urlencoded">
 <div align="center" class="page-header alert text-warning">查看 "<? echo htmlspecialchars_decode($row['val_reason']); ?>" 详细信息</div>
 <div>
-验证原因:<textarea name="iReason" type="text" readonly="readonly" style="width: 866px; height: 25px;"><? echo htmlspecialchars_decode($row['val_reason']); ?></textarea><br />
+问题描述:<textarea name="iReason" type="text" readonly="readonly" style="width: 866px; height: 25px;"><? echo htmlspecialchars_decode($row['val_reason']); ?></textarea><br />
 </div>
 <div>
-验证目的:<textarea name="iPurpose" type="text" readonly="readonly" style="width: 866px; height: 25px;"><? echo htmlspecialchars_decode($row['val_purpose']); ?></textarea><br />
+短期对策:<textarea name="iPurpose" type="text" readonly="readonly" style="width: 866px; height: 25px;"><? echo htmlspecialchars_decode($row['val_purpose']); ?></textarea><br />
 </div>
 <div>
-验证手法:<textarea name="iScheme" type="text" readonly="readonly" style="width: 866px; height: 25px;"><? echo htmlspecialchars_decode($row['val_scheme']); ?></textarea><br />
+长期对策:<textarea name="iScheme" type="text" readonly="readonly" style="width: 866px; height: 25px;"><? echo htmlspecialchars_decode($row['val_scheme']); ?></textarea><br />
 </div>
 <div>
 不良状况:<input name="iFailrate" type="text" readonly="readonly" value="<? echo htmlspecialchars_decode($row['val_failrate']); ?>"><br />
 </div>
 <div>
-验证人员:<input name="iOwner" type="text" readonly="readonly" value="<? echo htmlspecialchars_decode($row['val_owner']); ?>">
+分析人员:<input name="iOwner" type="text" readonly="readonly" value="<? echo htmlspecialchars_decode($row['val_owner']); ?>">
 </div>
 <div>
-验证状态:<select name="iStatus" id="iStatus" disabled="disabled" >
+问题状态:<select name="iStatus" id="iStatus" disabled="disabled" >
 <? 
 	if ($row['val_status'] == "Open") 
 		echo '<option value="Open" selected="selected">Open</option>';
@@ -106,7 +106,7 @@
 更新日期:<input name="iOwner" type="text" readonly="readonly" value="<? echo htmlspecialchars_decode($row['reserved1']); ?>">
 </div>
 <div>
-验证步骤:<br />
+分析步骤:<br />
 <textarea name="vContent"  readonly="readonly" class="xheditor {tools:'mini'}" style="width:940px;height:280px;">
 <?
 	echo htmlspecialchars_decode($row['val_content']);

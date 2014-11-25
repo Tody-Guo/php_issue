@@ -44,24 +44,24 @@
 <div class="container white-background pagecontent">
 
 <form action="add_issue.php?act=add", method="post">
-<div align="center" class="page-header alert text-warning">添加验证相关信息</div>
+<div align="center" class="page-header alert text-warning">添加问题点</div>
 <div>
-验证原因:<textarea name="iReason" type="text" style="width: 866px; height: 25px;"></textarea><br />
+问题描述:<textarea name="iReason" type="text" style="width: 866px; height: 25px;"></textarea><br />
 </div>
 <div>
-验证目的:<textarea name="iPurpose" type="text" style="width: 866px; height: 25px;"></textarea><br />
+短期对策:<textarea name="iPurpose" type="text" style="width: 866px; height: 25px;"></textarea><br />
 </div>
 <div>
-验证手法:<textarea name="iScheme" type="text" style="width: 866px; height: 25px;"></textarea><br />
+长期对策:<textarea name="iScheme" type="text" style="width: 866px; height: 25px;"></textarea><br />
 </div>
 <div>
 不良状况:<input name="iFailrate" type="text"></textarea><br />
 </div>
 <div>
-验证人员:<input name="iOwner" type="text">
+分析人员:<input name="iOwner" type="text">
 </div>
 <div>
-验证状态:<select name="iStatus" id="iStatus">
+问题状态:<select name="iStatus" id="iStatus">
 	<option value="Open">Open</option>
 	<option value="Tracking">Tracking</option>
 	<option value="Close">Close</option>
@@ -69,7 +69,7 @@
 </select>
 </div>
 <div>
-验证步骤:<br />
+分析步骤:<br />
 <textarea name="vContent" rows="12" cols="80" class="xheditor {tools:'mfull',skin:'default', upImgUrl:'upload.php?immediate=1'}" style="width:940px;height:280px; no-repeat right bottom fixed">
 </textarea>
 </div>
