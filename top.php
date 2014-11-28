@@ -17,7 +17,15 @@
 		<div class="well"> 
 			<div style="float:left">
 <?
-	echo "<a href='index.php'>HOME</a> | <a href=\"add_issue.php\">Add Issue</a> | <a href=\"add_issue.php\">Export</a>";
+	echo "【<a href='index.php'>ISSUES HOME</a>";
+	if ($_SESSION['user']==1)
+		echo " | <a href=\"add_issue.php\">Add issue</a>";
+
+	echo "】【<a href=\"versionlist.php\">VERSION HOME</a>";
+		
+	if ($_SESSION['user']==1)
+		echo " | <a href=\"add_verlist.php\">Add Version</a>"; 		
+	echo "】【<a href=\"export.php\">Export</a>】";
 	if ($_SESSION['user']==1)
 		echo " | <a href=\"top.php?logout=1\">Logout</a>";
 ?>
