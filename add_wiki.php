@@ -16,8 +16,7 @@
 	unset($_POST,$_GET);
 	if (isset($act))
 	{
-		if (empty($iReason) || empty($iPurpose) ||empty($iScheme) ||empty($iFailrate) ||empty($vContent) || empty($iOwner) 
-			|| empty($iStatus)){
+		if (empty($iTitle) || empty($iWritor) ||empty($vContent)){
 			echo "<script>alert('Some content must be filled in data!!');window.history.go(-1);</script>";
 			die("Some content must be filled in data!");
 		}
@@ -26,16 +25,15 @@
 			date_default_timezone_set('Asia/Shanghai');
 			$dt = date("Y-m-d H:i:s");
 			$db = new mysql();
-			$sql="INSERT INTO `validate_issues` (`val_reason`, `val_purpose`, `val_scheme`, `val_failrate`, `val_content`, 
-				`val_owner`, `val_date`, `val_status`) values('".htmlspecialchars($iReason)."', '".htmlspecialchars($iPurpose)."', 
-					'".htmlspecialchars($iScheme)."', '".htmlspecialchars($iFailrate)."', '"
-				.htmlspecialchars($vContent)."', '".htmlspecialchars($iOwner)."', '".$dt."', '".htmlspecialchars($iStatus)."')";
+			$sql="INSERT INTO `te_wiki_table` (`wiki_title`, `wiki_body`, `wiki_writor`, `wiki_build_date`) 
+					values('".htmlspecialchars($iTitle)."', '".htmlspecialchars($vContent)."', 
+					'".htmlspecialchars($iWritor)."', '".$dt."')";
 			$db->query($sql);
-			echo "<script>alert('Data added!');window.location='index.php';</script>";
+			echo "<script>alert('Data added!');window.location='tewiki.php';</script>";
 		}
 	}
 ?>
-<title>添加问题点</title>
+<title>添加维基内容</title>
 </head>
 <body class="background">
 <?
@@ -43,33 +41,16 @@
 ?>
 <div class="container white-background pagecontent">
 
-<form action="add_issue.php?act=add", method="post">
-<div align="center" class="page-header alert text-warning">添加问题点</div>
+<form action="add_wiki.php?act=add", method="post">
+<div align="center" class="page-header alert text-warning">添加维基内容</div>
 <div>
-问题描述:<textarea name="iReason" type="text" style="width: 866px; height: 25px;"></textarea><br />
+标题:<textarea name="iTitle" type="text" style="width: 866px; height: 25px;"></textarea><br />
 </div>
 <div>
-短期对策:<textarea name="iPurpose" type="text" style="width: 866px; height: 25px;"></textarea><br />
+作者:<textarea name="iWritor" type="text" style="width: 866px; height: 25px;"></textarea><br />
 </div>
 <div>
-长期对策:<textarea name="iScheme" type="text" style="width: 866px; height: 25px;"></textarea><br />
-</div>
-<div>
-不良状况:<input name="iFailrate" type="text"></textarea><br />
-</div>
-<div>
-分析人员:<input name="iOwner" type="text">
-</div>
-<div>
-问题状态:<select name="iStatus" id="iStatus">
-	<option value="Open">Open</option>
-	<option value="Tracking">Tracking</option>
-	<option value="Close">Close</option>
-
-</select>
-</div>
-<div>
-分析步骤:<br />
+维基内容:<br />
 <textarea name="vContent" rows="12" cols="80" class="xheditor {tools:'mfull',skin:'default', upImgUrl:'upload.php?immediate=1'}" style="width:940px;height:280px; no-repeat right bottom fixed">
 </textarea>
 </div>

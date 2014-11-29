@@ -48,7 +48,7 @@
 		}
 	}
 ?>
-<title>Add validate Issue</title>
+<title>添加管控内容</title>
 </head>
 <body class="background">
 <?

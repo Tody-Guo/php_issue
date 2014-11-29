@@ -70,7 +70,7 @@ TV版本:<input name="tvversion" type="text" value="<? echo htmlspecialchars_dec
 </div>
 <div>
 备注:<br />
-<textarea name="vremark" rows="12" cols="80" class="xheditor {tools:'mfull',skin:'default', upImgUrl:'upload.php?immediate=1'}" style="width:940px;height:280px; no-repeat right bottom fixed">
+<textarea name="vremark" rows="12" cols="80" class="xheditor {tools:'mini'}" style="width:940px;height:280px; no-repeat right bottom fixed">
 <? echo htmlspecialchars_decode($row['REMARK']); ?>
 </textarea>
 </div>
