@@ -36,7 +36,7 @@
 				机种搜索：<input type="text" class="input-medium search-query" name="search"><button type="submit" class="btn">Search</button>
 			</form>
 		</div>
-		<div style="float:right">视图：<a href="index.php?view=0">列表</a> | <a href="index.php?view=0">详细</a></div>
+		<div style="float:right">视图：<a href="versionlist.php?view=0">列表</a> | <a href="versionlist.php?view=0">详细</a></div>
 	</div>
 	
 	<div>
@@ -56,7 +56,7 @@
 			$item = $i + 1;
 			echo "<tr>";
 			echo "<td>$item</td>";
-			echo "<td><a href=\"review_version.php?id=".$row['id']."\">".htmlspecialchars_decode($row['Model_name'])."</a></td>";
+			echo "<td><a href=\"review_verlist.php?id=".$row['ID']."\">".htmlspecialchars_decode($row['Model_name'])."</a></td>";
 			echo "<td>".htmlspecialchars_decode($row['Customer'])."</td>";
 			echo "<td>".htmlspecialchars_decode($row['System_type'])."</td>";
 			echo "<td>".htmlspecialchars_decode($row['BIOS_version'])."</td>";

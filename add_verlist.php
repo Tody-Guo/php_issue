@@ -20,15 +20,29 @@
 			echo "<script>alert('Some content must be filled in data!!');window.history.go(-1);</script>";
 			die("Some content must be filled in data!");
 		}
+		
+		if (empty($ecversion))
+			$ecversion='N/A';
+		if (empty($tspfw))
+			$tspfw='N/A';
+		if (empty($threegfw))
+			$threegfw='N/A';
+		if (empty($tvversion))
+			$tvversion='N/A';
+		if (empty($vremark))
+			$vremark='N/A';
+
 		if ($act == 'add')
 		{	
 			date_default_timezone_set('Asia/Shanghai');
 			$dt = date("Y-m-d H:i:s");
 			$db = new mysql();
-			$sql="INSERT INTO `validate_issues` (`Model_name`, `Customer`, `System_type`, `BIOS_version`, `Bios_release_date`, 
-				`Owner`, `Build_Date`, `val_status`) values('".htmlspecialchars($modelname)."', '".htmlspecialchars($customername)."', 
+			$sql="INSERT INTO `eng_version_control_table` (`Model_name`, `Customer`, `System_type`, `BIOS_version`, `Bios_release_date`, 
+				`Owner`, `Build_Date`, `EC_version`, `TSP_FW`, `3G_FW`, `TV_FW`, `REMARK`) values('".htmlspecialchars($modelname)."', '".htmlspecialchars($customername)."', 
 					'".htmlspecialchars($systemver)."', '".htmlspecialchars($biosversion)."', '"
-				.htmlspecialchars($biosdate)."', '".htmlspecialchars($vowner)."', '".$dt."')";
+				.htmlspecialchars($biosdate)."', '".htmlspecialchars($vowner)."', '".$dt."', '"
+				.htmlspecialchars($ecversion)."', '".htmlspecialchars($tspfw)."', '".htmlspecialchars($threegfw)
+				."', '".htmlspecialchars($tvversion)."', '".htmlspecialchars($vremark)."')";
 			$db->query($sql);
 			echo "<script>alert('Data added!');window.location='versionlist.php';</script>";
 		}
@@ -54,25 +68,25 @@
 系统版本:<textarea name="systemver" type="text" style="width: 866px; height: 25px;"></textarea><br />
 </div>
 <div>
-BIOS版本:<input name="biosversion" type="text"></textarea><br />
+BIOS版本:<input name="biosversion" type="text">
 </div>
 <div>
 发行日期:<input name="biosdate" type="text">
 </div>
 <div>
-EC  版本:<input name="ecversion" type="text"></textarea><br />
+EC版本:<input name="ecversion" type="text">
 </div>
 <div>
-触屏版本:<input name="tspfw" type="text"></textarea><br />
+触屏分位:<input name="tspfw" type="text">
 </div>
 <div>
-3G版本:<input name="threegfw" type="text"></textarea><br />
+3G分位:<input name="threegfw" type="text">
 </div>
 <div>
-TV版本:<input name="tvversion" type="text"></textarea><br />
+TV分位:<input name="tvversion" type="text">
 </div>
 <div>
-管控人员:<input name="vowner" type="text"></textarea><br />
+管控人员:<input name="vowner" type="text">
 </div>
 <div>
 备注:<br />

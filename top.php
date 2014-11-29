@@ -26,6 +26,9 @@
 	if ($_SESSION['user']==1)
 		echo " | <a href=\"add_verlist.php\">Add Version</a>"; 		
 	echo "】【<a href=\"export.php\">Export</a>】";
+
+	echo "【<a href=\"TEWiki.php\">Wiki</a>】";
+
 	if ($_SESSION['user']==1)
 		echo " | <a href=\"top.php?logout=1\">Logout</a>";
 ?>
