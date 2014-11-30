@@ -39,8 +39,10 @@
 		<div style="float:right">视图：<a href="tewiki.php?view=0">列表</a> | <a href="tewiki.php?view=1">详细</a></div>
 	</div>
 	
-	<div>	<?if ($view == 0){?>
-		<table border=1 cellpadding=0 class="table table-hover">	<?	} ?>
+	<div>	
+	<?if ($view == 0){?>
+		<table border=1 cellpadding=0 class="table table-hover">
+	<?	} ?>
 <? 		if ($view == 0){ 
 			echo '<tr><th>Item</th><th>标题</th><th>作者</th><th>发布时间</th><th>更新时间</th></tr>';
 		}		
@@ -52,7 +54,8 @@
 			$db->query("select * from te_wiki_table ORDER BY wiki_build_date DESC");
 		$num = $db->db_num_rows();
 		for($i=0; $i<$num; $i++){
-			$row = $db->fetch_assoc();			if ($view == 0){
+			$row = $db->fetch_assoc();
+			if ($view == 0){
 				$item = $i + 1;
 				echo "<tr>";
 				echo "<td>$item</td>";
@@ -60,9 +63,14 @@
 				echo "<td>".$row['wiki_writor']."</td>";
 				echo "<td>".$row['wiki_build_date']."</td>";
 				echo "<td>".$row['wiki_update_date']."</td>";
-				echo "</tr>\n";			}else{				echo "<div class='well'><h2>".htmlspecialchars_decode($row['wiki_title'])."</h2><strong>编写：</strong>".htmlspecialchars_decode($row['wiki_writor'])."&nbsp;&nbsp;&nbsp;&nbsp;<strong>编写日期：</strong>".htmlspecialchars_decode($row['wiki_build_date']);				echo "<div class='well'>".htmlspecialchars_decode($row['wiki_body'])."</div>";			}
-		}	if ($view == 0)
-		echo "</table>";?>
+				echo "</tr>\n";			
+			}else{
+				echo "<div class='alert alert-info'><h3>".htmlspecialchars_decode($row['wiki_title'])."</h3><strong>编写：</strong>".htmlspecialchars_decode($row['wiki_writor'])."&nbsp;&nbsp;&nbsp;&nbsp;<strong>编写日期：</strong>".htmlspecialchars_decode($row['wiki_build_date'])."</div>";
+				echo "<div class='well'>".htmlspecialchars_decode($row['wiki_body'])."</div>";
+			}
+		}	
+		if ($view == 0)
+			echo "</table>";?>
 	</div>
 </div>
 <script src="/js/jquery.min.js"></script>

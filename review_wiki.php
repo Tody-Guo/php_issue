@@ -44,13 +44,13 @@
 <div>
 作者:<textarea name="iWritor" type="text" style="width: 866px; height: 25px;"><? echo htmlspecialchars_decode($row['wiki_writor']); ?></textarea><br />
 </div>
-<div>
-维基内容:<br />
-<textarea name="vContent" rows="12" cols="80" class="xheditor {tools:'mini'}" style="width:940px;height:280px; no-repeat right bottom fixed">
-<? echo htmlspecialchars_decode($row['wiki_body']); ?>
-</textarea>
+<div class="alert alert-info">
+<h4>维基内容:</h4>
 </div>
-<div><input class="btn btn-success btn-primary" name="submit" value="Ok" type="submit"><input class="btn btn-danger" name="reset" value="Reset" type="reset"></div>
+	<div class="well">
+	<? echo htmlspecialchars_decode($row['wiki_body']); ?>
+	</div>
+</div>
 </form>
 </div>
 <?

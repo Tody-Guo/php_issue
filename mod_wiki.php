@@ -25,13 +25,13 @@
 			date_default_timezone_set('Asia/Shanghai');
 			$dt = date("Y-m-d H:i:s");
 			$db = new mysql();
-			$table = "eng_version_control_table";
+			$table = "te_wiki_table";
 			$condition = "id=".$id;
-			$mod_content="wiki_title=\"".htmlspecialchars($iTitle)."\", wiki_writor=\"".htmlspecialchars($iWritor)."\", 
-			wiki_body=\"".htmlspecialchars($vContent)."\", wiki_update_date=\"".$dt."\"";	
+			$mod_content="wiki_title='".htmlspecialchars($iTitle)."', wiki_writor='".htmlspecialchars($iWritor)."', 
+			wiki_body='".htmlspecialchars($vContent)."', wiki_update_date='".$dt."'";	
 			
 			$db->update($table, $mod_content, $condition);
-			echo "<script>alert('Data changed!');window.location='admin_ver.php'</script>";
+			echo "<script>alert('Data changed!');window.location='admin_wiki.php'</script>";
 			$db->close();
 		}
 	}
@@ -67,7 +67,7 @@
 </div>
 <div>
 维基内容:<br />
-<textarea name="vContent" rows="12" cols="80" class="xheditor {tools:'mfull',skin:'default', upImgUrl:'upload.php?immediate=1'" style="width:940px;height:280px; no-repeat right bottom fixed">
+<textarea name="vContent" rows="12" cols="80" class="xheditor {tools:'mfull',skin:'default', upImgUrl:'upload.php?immediate=1'}" style="width:940px;height:280px; no-repeat right bottom fixed">
 <? echo htmlspecialchars_decode($row['wiki_body']); ?>
 </textarea>
 <div><input class="btn btn-success btn-primary" name="submit" value="Change" type="submit"><input class="btn btn-danger" name="reset" value="Reset" type="reset"></div>

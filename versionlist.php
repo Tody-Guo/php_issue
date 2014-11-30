@@ -62,7 +62,7 @@
 			echo "<td>".htmlspecialchars_decode($row['BIOS_version'])."</td>";
 			echo "<td>".htmlspecialchars_decode($row['EC_version'])."</td>";
 			echo "<td>".htmlspecialchars_decode($row['Owner'])."</td>";
-			echo "<td><font color=\"red\">".$row['REMARK']."</font></td>";
+			echo "<td>".htmlspecialchars_decode($row['REMARK'])."</td>";
 			echo "</tr>\n";
 		}
 ?>

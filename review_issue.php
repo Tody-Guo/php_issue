@@ -105,15 +105,10 @@
 <div>
 更新日期:<input name="iOwner" type="text" readonly="readonly" value="<? echo htmlspecialchars_decode($row['reserved1']); ?>">
 </div>
-<div>
-分析步骤:<br />
-<textarea name="vContent"  readonly="readonly" class="xheditor {tools:'mini'}" style="width:940px;height:280px;">
-<?
-	echo htmlspecialchars_decode($row['val_content']);
-?>
-</textarea>
+<div class="alert alert-info"><h4>分析步骤:</h4></div>
+<div class="well">
+	<?	echo htmlspecialchars_decode($row['val_content']);?>
 </div>
-<div><input class="btn btn-success btn-primary" name="submit" value="Ok" type="submit"><input class="btn btn-danger" name="reset" value="Reset" type="reset"></div>
 </form>
 </div>
 <?

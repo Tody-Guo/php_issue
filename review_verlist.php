@@ -68,13 +68,10 @@ TV版本:<input name="tvversion" type="text" value="<? echo htmlspecialchars_dec
 <div>
 管控人员:<input name="vowner" type="text" value="<? echo htmlspecialchars_decode($row['Owner']); ?>">
 </div>
-<div>
-备注:<br />
-<textarea name="vremark" rows="12" cols="80" class="xheditor {tools:'mini'}" style="width:940px;height:280px; no-repeat right bottom fixed">
+<div><h4>备注:</h4></div>
+<div class="well">
 <? echo htmlspecialchars_decode($row['REMARK']); ?>
-</textarea>
 </div>
-<div><input class="btn btn-success btn-primary" name="submit" value="Ok" type="submit"><input class="btn btn-danger" name="reset" value="Reset" type="reset"></div>
 </form>
 </div>
 <?
