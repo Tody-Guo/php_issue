@@ -1,5 +1,5 @@
 ﻿<?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 	
 	session_start();	
 ?>
@@ -19,7 +19,7 @@
 			$db = new mysql();
 			$db->delete('validate_issues', "id=".$id);
 			$db->close();
-			echo "<script>alert('Data has deleted!!!');window.location='admin8.php';</script>";
+			echo "<script>alert('Data has deleted!!!');window.location='admin_index.php?name=issue';</script>";
 		}
 	}
 	if (isset($passwd) && $passwd == "666666"){
@@ -29,7 +29,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+//	include "top.php";
 ?>
 <div class="container">
 <? if ($_SESSION['user'] != 1){  ?>
@@ -47,18 +47,18 @@
 	<div class="page-header alert text-warning"><li><h4>问题点汇总表 管理</h4></li></div>
 	<div>
 		<table border=1 cellpadding=0 class="table table-hover">
-		<tr><th>Item</th><th>问题点</th><th>详细状况</th><th>发现时间</th><th>Admin</th></tr>
+		<tr><th>Item</th><th>问题点</th><th>分析人员</th><th>发现时间</th><th>Admin</th></tr>
 <?
 		$db = new mysql();
-		$db->query("select * from validate_issues");
+		$db->query("select * from validate_issues ORDER BY val_date DESC");
 		$num = $db->db_num_rows();
 		for($i=0; $i<$num; $i++){
 			$row = $db->fetch_assoc();
 			$item = $i + 1;
 			echo "<tr>";
 			echo "<td>$item</td>";
-			echo "<td><a href=\"review_issue.php?id=".$row['id']."\">".htmlspecialchars_decode($row['val_reason'])."</a></td>";
-			echo "<td>".htmlspecialchars_decode($row['val_content'])."</td>";
+			echo "<td><a href=\"../review_issue.php?id=".$row['id']."\">".htmlspecialchars_decode($row['val_reason'])."</a></td>";
+			echo "<td>".htmlspecialchars_decode($row['val_owner'])."</td>";
 			echo "<td>".$row['val_date']."</td>";
 			echo "<td><a href=\"mod_issue.php?id=".$row['id']."\" rel='tooltip' title='修改问题点'>[改]</a>&nbsp;|&nbsp;<a href=\"admin8.php?id=".$row['id']."&act=del\" rel='tooltip' title='删除问题点，当心哦~~~'><font color='red'>删</font></a></td>";
 			echo "</tr>\n";
@@ -71,7 +71,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <?
-include 'bottom.php';
+//	include 'bottom.php';
 ?>
 </body>
 <html>

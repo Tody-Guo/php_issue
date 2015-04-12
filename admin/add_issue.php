@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/xhEditor/xheditor_lang/zh-cn.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 
 	extract($_POST);
 	extract($_GET);
@@ -31,7 +31,7 @@
 					'".htmlspecialchars($iScheme)."', '".htmlspecialchars($iFailrate)."', '"
 				.htmlspecialchars($vContent)."', '".htmlspecialchars($iOwner)."', '".$dt."', '".htmlspecialchars($iStatus)."')";
 			$db->query($sql);
-			echo "<script>alert('Data added!');window.location='index.php';</script>";
+			echo "<script>alert('Data added!');window.location='admin_index.php?name=issue';</script>";
 		}
 	}
 ?>
@@ -39,7 +39,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+	include "admin_top.php";
 ?>
 <div class="container white-background pagecontent">
 
@@ -77,7 +77,7 @@
 </form>
 </div>
 <?
-include 'bottom.php';
+include '../bottom.php';
 ?>
 </body>
 <html>

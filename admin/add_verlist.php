@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/xhEditor/xheditor_lang/zh-cn.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 
 	extract($_POST);
 	extract($_GET);
@@ -44,7 +44,7 @@
 				.htmlspecialchars($ecversion)."', '".htmlspecialchars($tspfw)."', '".htmlspecialchars($threegfw)
 				."', '".htmlspecialchars($tvversion)."', '".htmlspecialchars($vremark)."')";
 			$db->query($sql);
-			echo "<script>alert('Data added!');window.location='versionlist.php';</script>";
+			echo "<script>alert('Data added!');window.location='admin_index.php?name=version';</script>";
 		}
 	}
 ?>
@@ -52,7 +52,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+	include "admin_top.php";
 ?>
 <div class="container white-background pagecontent">
 
@@ -97,7 +97,7 @@ TV分位:<input name="tvversion" type="text">
 </form>
 </div>
 <?
-include 'bottom.php';
+include '../bottom.php';
 ?>
 </body>
 <html>

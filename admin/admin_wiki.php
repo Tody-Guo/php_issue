@@ -1,5 +1,5 @@
 ﻿<?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 	
 	session_start();	
 ?>
@@ -19,7 +19,7 @@
 			$db = new mysql();
 			$db->delete('te_wiki_table', "id=".$id);
 			$db->close();
-			echo "<script>alert('Data has deleted!!!');window.location='admin_wiki.php';</script>";
+			echo "<script>alert('Data has deleted!!!');window.location='admin_index.php?name=wiki';</script>";
 		}
 	}
 	if (isset($passwd) && $passwd == "666666"){
@@ -29,7 +29,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+//	include "top.php";
 ?>
 <div class="container">
 <? if ($_SESSION['user'] != 1){  ?>
@@ -57,7 +57,7 @@
 			$item = $i + 1;
 			echo "<tr>";
 			echo "<td>$item</td>";
-			echo "<td><a href=\"review_wiki.php?id=".$row['ID']."\">".htmlspecialchars_decode($row['wiki_title'])."</a></td>";
+			echo "<td><a href=\"../review_wiki.php?id=".$row['ID']."\">".htmlspecialchars_decode($row['wiki_title'])."</a></td>";
 			echo "<td>".htmlspecialchars_decode($row['wiki_writor'])."</td>";
 			echo "<td><a href=\"mod_wiki.php?id=".$row['ID']."\" rel='tooltip' title='修改维基信息'>[改]</a>&nbsp;|&nbsp;<a href=\"admin_wiki.php?id=".$row['ID']."&act=del\" rel='tooltip' title='删除表内容，当心哦~~~'><font color='red'>删</font></a></td>";
 			echo "</tr>\n";
@@ -70,7 +70,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <?
-include 'bottom.php';
+//	include 'bottom.php';
 ?>
 </body>
 <html>

@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/xhEditor/xheditor_lang/zh-cn.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 
 	extract($_POST);
 	extract($_GET);
@@ -31,7 +31,7 @@
 			wiki_body='".htmlspecialchars($vContent)."', wiki_update_date='".$dt."'";	
 			
 			$db->update($table, $mod_content, $condition);
-			echo "<script>alert('Data changed!');window.location='admin_wiki.php'</script>";
+			echo "<script>alert('Data changed!');window.location='admin_index.php?name=wiki'</script>";
 			$db->close();
 		}
 	}
@@ -53,7 +53,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+	include "admin_top.php";
 ?>
 <div class="container white-background pagecontent">
 
@@ -74,7 +74,7 @@
 </form>
 </div>
 <?
-include 'bottom.php';
+include '../bottom.php';
 ?>
 </body>
 <html>

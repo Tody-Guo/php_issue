@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/xhEditor/xheditor_lang/zh-cn.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 
 	extract($_POST);
 	extract($_GET);
@@ -36,7 +36,7 @@
 			"\", REMARK=\"".htmlspecialchars($vremark)."\", Update_Date=\"".$dt."\"";	
 			
 			$db->update($table, $mod_content, $condition);
-			echo "<script>alert('Data changed!');window.location='admin_ver.php'</script>";
+			echo "<script>alert('Data changed!');window.location='admin_index.php?name=version'</script>";
 			$db->close();
 		}
 	}
@@ -58,7 +58,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+	include "admin_top.php";
 ?>
 <div class="container white-background pagecontent">
 
@@ -104,7 +104,7 @@ TV版本:<input name="tvversion" type="text" value="<? echo htmlspecialchars_dec
 </form>
 </div>
 <?
-include 'bottom.php';
+include '../bottom.php';
 ?>
 </body>
 <html>

@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/xhEditor/xheditor_lang/zh-cn.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 
 	extract($_POST);
 	extract($_GET);
@@ -35,7 +35,7 @@
 			val_status=\"".htmlspecialchars($iStatus)."\", reserved1=\"".$dt."\"";	
 			
 			$db->update($table, $mod_content, $condition);
-			echo "<script>alert('Data changed!');window.location='admin8.php'</script>";
+			echo "<script>alert('Data changed!');window.location='admin_index.php?name=issue'</script>";
 			$db->close();
 		}
 	}
@@ -57,7 +57,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+	include "admin_top.php";
 ?>
 <div class="container white-background pagecontent">
 
@@ -110,7 +110,7 @@
 </form>
 </div>
 <?
-include 'bottom.php';
+include '../bottom.php';
 ?>
 </body>
 <html>

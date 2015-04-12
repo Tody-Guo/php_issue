@@ -1,5 +1,5 @@
 ﻿<?php
-	include 'inc/conn.php';
+	include '../inc/conn.php';
 	
 	session_start();	
 ?>
@@ -19,7 +19,7 @@
 			$db = new mysql();
 			$db->delete('eng_version_control_table', "id=".$id);
 			$db->close();
-			echo "<script>alert('Data has deleted!!!');window.location='admin_ver.php';</script>";
+			echo "<script>alert('Data has deleted!!!');window.location='admin_index.php?name=version';</script>";
 		}
 	}
 	if (isset($passwd) && $passwd == "666666"){
@@ -29,7 +29,7 @@
 </head>
 <body class="background">
 <?
-	include "top.php";
+//	include "top.php";
 ?>
 <div class="container">
 <? if ($_SESSION['user'] != 1){  ?>
@@ -57,7 +57,7 @@
 			$item = $i + 1;
 			echo "<tr>";
 			echo "<td>$item</td>";
-			echo "<td><a href=\"review_verlist.php?id=".$row['ID']."\">".htmlspecialchars_decode($row['Model_name'])."</a></td>";
+			echo "<td><a href=\"../review_verlist.php?id=".$row['ID']."\">".htmlspecialchars_decode($row['Model_name'])."</a></td>";
 			echo "<td>".htmlspecialchars_decode($row['Customer'])."</td>";
 			echo "<td>".htmlspecialchars_decode($row['BIOS_version'])."</td>";
 			echo "<td>".$row['Build_Date']."</td>";
@@ -72,7 +72,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <?
-include 'bottom.php';
+//	include 'bottom.php';
 ?>
 </body>
 <html>
